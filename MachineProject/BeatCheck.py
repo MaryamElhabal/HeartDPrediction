@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd 
 import pickle 
 
-with open('RainForestModel.pkl', 'rb') as f:
+with open('models/RainForestModel.pkl', 'rb') as f:
     model = pickle.load(f)
 
 st.title(":blue[ Heart Disease Prediction ] 🫀")
