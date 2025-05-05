@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd 
 import joblib
 
-with open('RainForestModel.pkl', 'rb') as f:
+with open('RainForestModel2.pkl', 'rb') as f:
     model = joblib.load(f)
 
 st.title(":blue[ Heart Disease Prediction ] 🫀")
@@ -28,7 +28,6 @@ thal = st.selectbox(":blue[Thalassemia (1 = Normal, 2 = Fixed Defect, 3 = Revers
 input_data = np.array([[age, 1 if sex == "Male" else 0, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])
 
 if st.button("Predict"):
-    input_data = np.array([[age, 1 if sex == "Male" else 0, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])
     prediction = model.predict(input_data)
 
     st.header(":gray[Patient Data Summary]")
@@ -61,7 +60,7 @@ if st.button("Predict"):
     st.subheader("👩‍⚕️:blue[Normal Ranges for Heart Health] ")
     st.table(df)
 
-    if prediction == 1:
+    if prediction[0] == 1:
         st.error(f"🔴 High risk of heart disease.\nPlease consult a doctor for further medical evaluation.")
     else:
         st.success(f"🟢 Low risk of heart disease.\nContinue with healthy habits and regular checkups.")
