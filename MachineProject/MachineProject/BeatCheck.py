@@ -1,10 +1,10 @@
 import streamlit as st
 import numpy as np 
 import pandas as pd 
-import pickle 
+import joblib
 
-with open('models/RainForestModel.pkl', 'rb') as f:
-    model = pickle.load(f)
+with open('RainForestModel.pkl', 'rb') as f:
+    model = joblib.load(f)
 
 st.title(":blue[ Heart Disease Prediction ] 🫀")
 st.subheader("",divider="blue")
